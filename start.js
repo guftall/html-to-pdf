@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
     (async() => {
 
         res.end(await getPdf())
-    })
+    })()
 })
 
 app.listen(port, () => {

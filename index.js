@@ -9,11 +9,11 @@ exports.getPdf = async function getPdf() {
     // create a new page
     const page = await browser.newPage()
 
+    let file = `${__dirname}/template.html`
     // set your html as the pages content
-    const html = fs.readFileSync(`${__dirname}/template.html`, 'utf8')
-    await page.setContent(html, {
-        waitUntil: 'domcontentloaded'
-    })
+    const html = fs.readFileSync(file, 'utf8')
+    await fs.writeFile(file, html, { encoding: 'utf8' })
+    await page.goto(`file://${file}`, { waitUntil: 'networkidle0' })
 
     // create a pdf buffer
     const pdfBuffer = await page.pdf({

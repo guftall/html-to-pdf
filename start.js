@@ -1,6 +1,6 @@
 
 const express = require('express')
-const getPdf = require('./index').default
+const getPdf = require('./index').getPdf
 const app = express()
 const port = 3000
 app.use(express.static('assets'))

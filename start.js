@@ -6,7 +6,10 @@ const port = 3000
 app.use(express.static('assets'))
 
 app.get('/', (req, res) => {
-    res.send(getPdf())
+    (async() => {
+
+        res.end(await getPdf())
+    })
 })
 
 app.listen(port, () => {

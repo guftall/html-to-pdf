@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer')
 const fs = require('fs');
 
-export default async function getPdf() {
+exports.getPdf = async function getPdf() {
     const browser = await puppeteer.launch({
         headless: true
     })
